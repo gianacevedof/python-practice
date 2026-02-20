@@ -11,11 +11,14 @@ high = int(input("Now, enter the highest number you want: "))
 number = random.randint(low, high)
 attempts = 1
 
-print("Now you have to guess what number the computer has selected.")
+print(f"Now guess the random number between {low} and {high}.")
 
 while True:
     guess = int(input("\nGuess a number: "))
-    if guess > number:
+
+    if guess < number or guess > number:
+        print(f"Invalid input. You must enter a number between {low} and {high}.")
+    elif guess > number:
         print("Your guess is too high.")
         attempts += 1
     elif guess < number:
